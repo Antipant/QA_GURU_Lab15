@@ -22,10 +22,8 @@ public class TestBase {
         if (!webConfig.getRemoteWebDriver().equals("")) {
             Configuration.remote = webConfig.getRemoteWebDriver();
         }
-        String baseUrlString = System.getProperty("baseUrl");
-        if (Objects.isNull(baseUrlString)) {
-            baseUrlString = "https://www.comindware.com/ru/";
+        if (System.getProperty("baseUrl") == null) {
+            System.setProperty("baseUrl", "https://www.comindware.com/ru/");
         }
-        open(baseUrlString);
     }
 }
